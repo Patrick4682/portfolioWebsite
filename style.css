@@ -32,7 +32,7 @@ body {
   
   /*style the div class 'image area'*/
   .image-area {
-    background-image:url("https://jsbin-user-assets.s3.amazonaws.com/fariazz/WebBackground.png");
+    background-image:url("Images/Background.png");
     background-position: center center;
     background-size: cover;
     padding-top: 200px;
