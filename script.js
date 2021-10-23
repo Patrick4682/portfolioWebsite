@@ -1,137 +1,112 @@
-let question = {
-    title: 'gato',
-    alternatives: ['dog', 'cat', 'bird', 'fish'],
-    correctAnswer: 1
-  };
-  
-  // define the array that stores all questions
-  let questions = [
-    {
-      title: 'gato',
-      alternatives: ['dog', 'cat', 'bird', 'fish'],
-      correctAnswer: 1
-    },
-    {
-      title: 'ave',
-      alternatives: ['mouse', 'hamster', 'lizard', 'bird'],
-      correctAnswer: 3
-    },
-    {
-      title: 'rata',
-      alternatives: ['cat', 'fish', 'rat', 'shark'],
-      correctAnswer: 2
-    },
-    {
-      title: 'mosca',
-      alternatives: ['fly', 'puma', 'fish', 'dog'],
-      correctAnswer: 0
+const startButton = document.getElementById('start-btn')
+const nextButton = document.getElementById('next-btn')
+const questionContainerElement = document.getElementById('question-container')
+const questionElement = document.getElementById('question')
+const answerButtonsElement = document.getElementById('answer-buttons')
+
+let shuffledQuestions, currentQuestionIndex
+
+startButton.addEventListener('click', startGame)
+nextButton.addEventListener('click', () => {
+  currentQuestionIndex++
+  setNextQuestion()
+})
+
+function startGame() {
+  startButton.classList.add('hide')
+  shuffledQuestions = questions.sort(() => Math.random() - .5)
+  currentQuestionIndex = 0
+  questionContainerElement.classList.remove('hide')
+  setNextQuestion()
+}
+
+function setNextQuestion() {
+  resetState()
+  showQuestion(shuffledQuestions[currentQuestionIndex])
+}
+
+function showQuestion(question) {
+  questionElement.innerText = question.question
+  question.answers.forEach(answer => {
+    const button = document.createElement('button')
+    button.innerText = answer.text
+    button.classList.add('btn')
+    if (answer.correct) {
+      button.dataset.correct = answer.correct
     }
-  ];
-  
-  let app = {
-    start: function() {
-      
-      this.currPosition = 0;
-      this.score = 0; // property to keep track of score
-      
-      // get alternatives
-      let alts = document.querySelectorAll('.alternative');
-    
-      alts.forEach((element, index) => {
-              
-        element.addEventListener('click', () => {
-          // check correct answer
-          this.checkAnswer(index);
-        });
-      });
-      
-      // refresh stats
-      this.updateStats();
-      
-      // show first question
-      this.showQuestion(questions[this.currPosition]);
-    },
-    
-    showQuestion: function(q) {
-      
-      // show question title
-      let titleDiv = document.getElementById('title');
-      titleDiv.textContent = q.title; 
-    
-      // show alternatives
-      let alts = document.querySelectorAll('.alternative');
-    
-      alts.forEach(function(element, index){
-        element.textContent = q.alternatives[index];
-      });
-    },
-    
-    checkAnswer: function(userSelected) {
-      
-      let currQuestion = questions[this.currPosition];
-      
-      if(currQuestion.correctAnswer == userSelected) {
-        // correct
-        console.log('correct');
-        this.score++;
-        this.showResult(true);
-      }
-      else {
-        // not correct
-        console.log('wrong');
-        this.showResult(false);
-      }
-      
-      // refresh stats
-      this.updateStats();
-      
-      // increase position
-      this.increasePosition();
-      
-      // show next question
-      this.showQuestion(questions[this.currPosition]);
-    },
-    
-    increasePosition: function() {
-      this.currPosition++;
-      
-      if(this.currPosition == questions.length){
-        this.currPosition = 0;
-      }
-    },
-    
-    updateStats: function() {
-      let scoreDiv = document.getElementById('score');
-      scoreDiv.textContent = `Your score: ${this.score}`;
-    },
-    
-    showResult: function(isCorrect) {
-      // select the DOM element
-      let resultDiv = document.getElementById('result');
-      let result = '';
-      
-      // checks
-      if(isCorrect) {
-        result = 'Correct Answer!';
-      }
-      else {
-        // get the current question
-        let currQuestion = questions[this.currPosition];
-        
-        // get the correct answer (index)
-        let correctAnswerIndex = currQuestion.correctAnswer;
-        
-        // get correct answer (text)
-        let correctAnswerText = currQuestion.alternatives[correctAnswerIndex];
-        
-        result = `Wrong! Correct answer: ${correctAnswerText}`;
-      }
-      
-      resultDiv.textContent = result;
-      
-    }
-    
-  };
-  
-  // initialize the application
-  app.start();
+    button.addEventListener('click', selectAnswer)
+    answerButtonsElement.appendChild(button)
+  })
+}
+
+function resetState() {
+  clearStatusClass(document.body)
+  nextButton.classList.add('hide')
+  while (answerButtonsElement.firstChild) {
+    answerButtonsElement.removeChild(answerButtonsElement.firstChild)
+  }
+}
+
+function selectAnswer(e) {
+  const selectedButton = e.target
+  const correct = selectedButton.dataset.correct
+  setStatusClass(document.body, correct)
+  Array.from(answerButtonsElement.children).forEach(button => {
+    setStatusClass(button, button.dataset.correct)
+  })
+  if (shuffledQuestions.length > currentQuestionIndex + 1) {
+    nextButton.classList.remove('hide')
+  } else {
+    startButton.innerText = 'Restart'
+    startButton.classList.remove('hide')
+  }
+}
+
+function setStatusClass(element, correct) {
+  clearStatusClass(element)
+  if (correct) {
+    element.classList.add('correct')
+  } else {
+    element.classList.add('wrong')
+  }
+}
+
+function clearStatusClass(element) {
+  element.classList.remove('correct')
+  element.classList.remove('wrong')
+}
+
+const questions = [
+  {
+    question: 'What is 2 + 2?',
+    answers: [
+      { text: '4', correct: true },
+      { text: '22', correct: false }
+    ]
+  },
+  {
+    question: 'Who is the best YouTuber?',
+    answers: [
+      { text: 'Web Dev Simplified', correct: true },
+      { text: 'Traversy Media', correct: true },
+      { text: 'Dev Ed', correct: true },
+      { text: 'Fun Fun Function', correct: true }
+    ]
+  },
+  {
+    question: 'Is web development fun?',
+    answers: [
+      { text: 'Kinda', correct: false },
+      { text: 'YES!!!', correct: true },
+      { text: 'Um no', correct: false },
+      { text: 'IDK', correct: false }
+    ]
+  },
+  {
+    question: 'What is 4 * 2?',
+    answers: [
+      { text: '6', correct: false },
+      { text: '8', correct: true }
+    ]
+  }
+]
