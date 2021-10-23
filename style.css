@@ -12,8 +12,8 @@ body {
 }
 
 #wrapper div, #wrapper ul {
-    width: 50%;
-    max-width: 300px;
+    width: 80%;
+    /*max-width: 300px;*/
 }
 
 ul {
