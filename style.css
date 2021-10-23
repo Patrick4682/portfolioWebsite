@@ -1,1 +1,35 @@
-/*this is you style.css page*/
+body {
+    background-color: white;
+    color: black; /*text color*/
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px;
+    margin: 0px;
+  }
+  
+  /*style the top menu - the div tag with class name 'nav*/
+  .nav {
+    background-color: cadetblue;
+    color: white;
+  }
+  
+  /*style the the unordered list*/
+  .nav ul {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+  }
+  
+  /*style the menu items*/
+  .nav ul li {
+    padding: 16px;
+    text-align: center;
+    font-size: 1.2rem;
+    border-bottom: 1px solid black;
+    transition: background-color 0.2s;
+  }
+  
+  /*add hover effects to menu items*/
+  .nav ul li:hover {
+    background-color:black;
+  }
