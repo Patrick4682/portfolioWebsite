@@ -1,5 +1,5 @@
 body {
-    background: #1E90FF;
+    background: #ff771e66;
     font-family: arial;
     text-align: center;
 }
@@ -12,26 +12,26 @@ body {
 }
 
 #wrapper div, #wrapper ul {
-    width: 50%;
-    max-width: 100px;
+    width: 100%;
+    max-width: 20em;
 }
 
 ul {
-    padding: 0px;
+    padding: 0em;
 }
 
 #title {
-    font-size: 20px;
+    font-size: 1em;
     font-weight: bold;
-    background: white;
-    padding: 10px;
+    background: #d2c9c9;
+    padding: 1em;
 }
 
 .alternative {
     list-style-type: none;
-    margin-bottom: 4px;
-    padding: 10px;
-    background: #E6E6E6;
+    margin-bottom: 1em;
+    padding: 1em;
+    background: #d6cfcf;
 }
 
 .alternative:hover {
@@ -44,5 +44,5 @@ ul {
 }
 
 #score, #result {
-    color: white;
+    color: #418682;
 }
