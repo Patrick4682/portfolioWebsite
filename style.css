@@ -1,26 +1,23 @@
 body {
     background-color: white;
-    color: black; /*text color*/
+    color: black; 
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
     padding: 0px;
     margin: 0px;
   }
   
-  /*style the top menu - the div tag with class name 'nav*/
   .nav {
     background-color: cadetblue;
     color: white;
   }
   
-  /*style the the unordered list*/
   .nav ul {
     margin: 0px;
     padding: 0px;
     list-style-type: none;
   }
   
-  /*style the menu items*/
   .nav ul li {
     padding: 16px;
     text-align: center;
@@ -29,24 +26,25 @@ body {
     transition: background-color 0.2s;
   }
   
-  /*add hover effects to menu items*/
   .nav ul li:hover {
     background-color:black;
   }
-
+  
+  /*style the div class 'image area'*/
   .image-area {
-      background-image: url("Images/Background.png");
-      background-position: center center;
-      background-size: cover;
-      padding-top: 200px;
-      padding-bottom: 200px;
+    background-image:url("https://jsbin-user-assets.s3.amazonaws.com/fariazz/WebBackground.png");
+    background-position: center center;
+    background-size: cover;
+    padding-top: 200px;
+    padding-bottom: 200px;
   }
-
-  .image-test {
-      text-align: centre;
-      background-color: black;
-      color: white;
-      font-size: 2.5rem;
-      max-width: 1020px;
-      padding: 0px 16px;
-  }
+  
+  /*style the image text*/
+  .image-text {
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-size: 2.5rem;
+    max-width: 1020px;
+    margin: 0px auto;
+    padding: 0px 16px;
