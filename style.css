@@ -1,48 +1,45 @@
-body {
-    background: #ff771e66;
-    font-family: arial;
+*{
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+.game{
+    width: 500px;
+    height: 200px;
+    border: 1px solid black;
+    margin: auto;
+}
+#character{
+    width: 60px;
+    height: 50px;
+    background-color: red;
+    overflow: hidden;
+    position:relative;
+    top: 150px;
+}
+.animate{
+    animation: jump 0.3s linear;
+}
+@keyframes jump{
+    0%{top: 150px;}
+    30%{top: 100px;}
+    70%{top: 100px;}
+    100%{top: 150px;}
+}
+
+#block{
+    background-color: blue;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 130px;
+    left: 500px;
+    animation: block 0.9s infinite linear;
+}
+@keyframes block{
+    0%{left: 500px}
+    100%{left: -20px}
+}
+p{
     text-align: center;
-}
-
-#wrapper {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#wrapper div, #wrapper ul {
-    width: 100%;
-    max-width: 20em;
-}
-
-ul {
-    padding: 0em;
-}
-
-#title {
-    font-size: 1em;
-    font-weight: bold;
-    background: #f48484;
-    padding: 1em;
-}
-
-.alternative {
-    list-style-type: none;
-    margin-bottom: 1em;
-    padding: 1em;
-    background: #d6cfcf;
-}
-
-.alternative:hover {
-    cursor: pointer;
-    opacity: 0.8;
-}
-
-#result {
-    font-weight: bold;
-}
-
-#score, #result {
-    color: #418682;
 }
