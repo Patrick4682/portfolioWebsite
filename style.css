@@ -10,7 +10,6 @@
     grid-gap: 5px;
   }
 .cell {
-     /* center the cell content */
     justify-content: center;
     align-items: center;
     display: flex;
@@ -24,7 +23,7 @@
 #c20:hover, #c19:hover, #c18:hover, #c10:hover, #c2:hover {
     background-color: yellow;
     filter: blur(1px);
-    transition: margin-right 2s ease-in-out .5s;
+
 }
 
 
