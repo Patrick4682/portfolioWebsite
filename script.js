@@ -1,34 +1,75 @@
-var character = document.getElementById("character");
-var block = document.getElementById("block");
+
 var counter=0;
-var health=3;
 
-
-function jump(){
-    if(character.classList == "animate"){return}
-    character.classList.add("animate");
-    setTimeout(function(){
-        character.classList.remove("animate");
-    },300);
-}
-var checkDead = setInterval(function() {
-    let characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
-    let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
-    if(health==0){
-        
-        block.style.animation = "none";
-        alert("Game Over. score: "+Math.floor(counter));
-        counter=0;
-        health=3;
-        block.style.animation = "block 1s infinite linear";
-        return
-    }
-    if(blockLeft<20 && blockLeft>-20 && characterTop>=130 && health!=0){
-        health--;
-        document.getElementById("healthSpan").innerHTML = health;
-    }else{
+var start = document.getElementById("c59").onmouseover = function() {
+    counter++;
+    document.getElementById("scoreSpan").innerHTML = counter;
+    var start = document.getElementById("c60").onmouseover = function() {
         counter++;
         document.getElementById("scoreSpan").innerHTML = counter;
-        document.getElementById("healthSpan").innerHTML = health
-    }
-}, 65);
+        var start = document.getElementById("c52").onmouseover = function() {
+            counter++;
+            document.getElementById("scoreSpan").innerHTML = counter;
+            var start = document.getElementById("c44").onmouseover = function() {
+                counter++;
+                document.getElementById("scoreSpan").innerHTML = counter;
+                var start = document.getElementById("c45").onmouseover = function() {
+                    counter++;
+                    document.getElementById("scoreSpan").innerHTML = counter;
+                    var start = document.getElementById("c46").onmouseover = function() {
+                        counter++;
+                        document.getElementById("scoreSpan").innerHTML = counter;
+                        var start = document.getElementById("c38").onmouseover = function() {
+                            counter++;
+                            document.getElementById("scoreSpan").innerHTML = counter;
+                            var start = document.getElementById("c30").onmouseover = function() {
+                                counter++;
+                                document.getElementById("scoreSpan").innerHTML = counter;
+                                var start = document.getElementById("c29").onmouseover = function() {
+                                    counter+=counter;
+                                    document.getElementById("scoreSpan").innerHTML = counter;
+                                    var start = document.getElementById("c21").onmouseover = function() {
+                                        counter+=counter;
+                                        document.getElementById("scoreSpan").innerHTML = counter;
+                                        var start = document.getElementById("c20").onmouseover = function() {
+                                            counter+=counter;
+                                            document.getElementById("scoreSpan").innerHTML = counter;
+                                            var start = document.getElementById("c19").onmouseover = function() {
+                                                counter+=counter;
+                                                document.getElementById("scoreSpan").innerHTML = counter;
+                                                var start = document.getElementById("c18").onmouseover = function() {
+                                                    counter+=counter;
+                                                    document.getElementById("scoreSpan").innerHTML = counter;
+                                                    var start = document.getElementById("c10").onmouseover = function() {
+                                                        counter+=counter;
+                                                        counter+=counter;
+                                                        counter+=counter;
+                                                        counter+=counter;
+                                                        document.getElementById("scoreSpan").innerHTML = counter;
+                                                        var start = document.getElementById("c2").onmouseover = function() {
+                                                            counter+=counter;
+                                                            document.getElementById("scoreSpan").innerHTML = "You Win";
+
+    }}}}}}}}}}}}}}
+
+
+ 
+    document.getElementById("scoreSpan").innerHTML = counter;
+    return;
+}
+
+document.getElementById("c59").onmouseover
+document.getElementById("c60").onmouseover
+document.getElementById("c52").onmouseover
+document.getElementById("c44").onmouseover
+document.getElementById("c45").onmouseover
+document.getElementById("c46").onmouseover
+document.getElementById("c38").onmouseover
+document.getElementById("c30").onmouseover
+document.getElementById("c29").onmouseover
+document.getElementById("c21").onmouseover
+document.getElementById("c20").onmouseover
+document.getElementById("c19").onmouseover
+document.getElementById("c18").onmouseover
+document.getElementById("c10").onmouseover
+document.getElementById("c2").onmouseover

@@ -1,45 +1,42 @@
-*{
-    padding: 0;
-    margin: 0;
-    overflow-x: hidden;
-}
-.game{
-    width: 500px;
-    height: 200px;
-    border: 1px solid black;
-    margin: auto;
-}
-#character{
-    width: 60px;
-    height: 50px;
-    background-color: red;
-    overflow: hidden;
-    position:relative;
-    top: 150px;
-}
-.animate{
-    animation: jump 0.3s linear;
-}
-@keyframes jump{
-    0%{top: 150px;}
-    30%{top: 100px;}
-    70%{top: 100px;}
-    100%{top: 150px;}
+.container {
+    background: black;
+    display: inline-block;
+    border: 5px solid black;
+  }
+.grid {
+    display: grid;
+    grid-template-columns: repeat(8, 80px);
+    grid-template-rows: repeat(8, 80px);
+    grid-gap: 5px;
+  }
+.cell {
+     /* center the cell content */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-family: Arial;
+    font-size: 3rem;
+    font-weight: bold;
+    background: white;
+  }
+
+#c59:hover, #c60:hover, #c52:hover, #c44:hover, #c45:hover, #c46:hover, #c38:hover, #c30:hover, #c29:hover, #c21:hover,
+#c20:hover, #c19:hover, #c18:hover, #c10:hover, #c2:hover {
+    background-color: yellow;
+    filter: blur(1px);
+    transition: margin-right 2s ease-in-out .5s;
 }
 
-#block{
-    background-color: blue;
-    width: 20px;
-    height: 20px;
-    position: relative;
-    top: 130px;
-    left: 500px;
-    animation: block 0.9s infinite linear;
-}
-@keyframes block{
-    0%{left: 500px}
-    100%{left: -20px}
-}
-p{
-    text-align: center;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
